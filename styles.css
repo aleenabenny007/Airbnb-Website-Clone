@@ -99,6 +99,10 @@ header>div {
     justify-content: flex-end;
 }
 
+.logo-small{
+    display: none;
+}
+
 .button {
     padding: 12px;
     border-radius: 30px;
@@ -144,6 +148,10 @@ header>div {
 /* header ends  */
 
 /* menu starts  */
+.menu-small-screen{
+    display: none;
+}
+
 .menu {
     display: flex;
     flex-flow: column;
@@ -298,52 +306,501 @@ header>div {
 .scrollable-menu{
     display: flex;
     justify-content: center;
-    /* background-color: yellowgreen; */
     border-top: 1px solid #ebebeb;
     margin-top: 22px;
 }
 
 .scrollable-menu ul{
     display: flex;
-    column-gap: 32px;
+    column-gap: 42px;
     align-items: center;
     flex-wrap: nowrap; 
     align-self: center;
-    width: 91.7%;
+    width: 91.68%;
     overflow: scroll;
     scrollbar-width: none;
+    margin:0 40px;
 }
 
-.scrollable-menu li {
-    border-bottom: 3px solid white;
+.scrollable-menu li{
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    column-gap: 50px;
+    padding: 27px 0;
+    padding-bottom: 16px;
+}
+
+.scrollable-menu li div {
+    border-bottom: 2px solid white;
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: 20px 0;
+    justify-content: center;
     display: flex;
     flex-flow: column;
     row-gap: 8px;
-    padding: 27px 0;
-    max-width: 100%;
-    /* background-color: #6a6a6a; */
 }
 
-.scrollable-menu li:hover{
-    border-color: #222222;
+.scrollable-menu li:first-child div{
+    margin-left: 0;
+    border-bottom: 2px solid black;
 }
 
-.scrollable-menu li .icon{
+.scrollable-menu li:not(:first-child) div:hover{
+    border-color: #6b6b6b67;
+}
+
+.scrollable-menu li:not(:first-child) div:hover .icon,.scrollable-menu li:not(:first-child) div:hover p{
+    filter: invert(0);
+    color: black;
+}
+
+.scrollable-menu li div .icon{
     height: 24px;
     width: auto;
-    margin: 50p;
+    filter: invert(0.33);
 }
 
-.scrollable-menu li p{
+.scrollable-menu li:first-child div .icon{
+    filter: invert(0);
+}
+
+.scrollable-menu li div p{
     font-family: "Circular-medium" !important;
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
     min-width: max-content;
+    color: #6b6b6b;
+    margin-bottom: 12px;
+}
+
+.scrollable-menu li:first-child div p{
+    color: black;
+}
+
+.arrow-right{
+    /* background-color: #6a6a6a; */
+    width: 84px;
+    height: 80px;
+    align-self: center;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    right: 6px;
+    top: 179px;
+    padding-right: 45px;
+    background-image: linear-gradient(270deg,white,white,white,white,white,transparent);
+}
+
+.arrow-right>div{
+    border: 1px solid #b7b7b7;
+    width: fit-content;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 7px;
+    background-color: white;
+}
+
+.arrow-right>div>img{
+    width: 12px;
+    height: 12px;
 }
 
 /* scrollable menu ends  */
+
+/* bottom nav  */
+.bottom-nav{
+    display: none;
+}
+/* bottom nav ends  */
+
+/* content starts here */
+main{
+    padding: 0 80px;
+}
+
+main>h1{
+    margin:20px 0;
+    font-family: "Circular-medium" !important;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+}
+
+.grid-division{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(1, 1fr);
+    column-gap: 24px;
+    row-gap: 39px;
+    margin-bottom: 50px;
+}
+
+.content-div {
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    row-gap: 4px;
+}
+
+main .content-div img{
+    width: 100%;
+    aspect-ratio: 1/.95;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+
+.content-div h1{
+    font-family: "Circular-medium" !important;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--black);
+}
+
+.content-div p{
+    font-family: "Circular" !important;
+    font-size: 15px;
+    line-height: 16px;
+    color: #6a6a6a;
+}
+
+.content-div h6{
+    font-family: "Circular" !important;
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 400;
+    color: var(--black);
+    margin-top: -1px;
+}
+
+.content-div h6>b{
+    font-family: "Circular-medium" !important;
+    font-size: 15px;
+}
+
+.top-buttons{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 12px;
+    position: relative;
+    top: 56px;
+    margin-top: -56px;
+}
+
+.top-buttons>.live-button{
+    background-color: rgba(255, 255, 255, 0.831);
+    padding: 7px 17px 7px 16px;
+    border-radius: 30px;
+    font-family: "Circular-medium" !important;
+    font-size: 14px;
+    z-index: -1;
+}
+
+.content-div.live .top-buttons>.live-button{
+    z-index: 0;
+}
+
+.top-buttons>.round-button{
+    background-color: rgba(255, 255, 255, 0.831);
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 1px;
+    margin-right: 0;
+}
+
+.top-buttons>.round-button img{
+    margin-top: 5px;
+    height: 13.8px;
+    object-fit: contain;
+}
+/* content ends here  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*...................................................................................................*/
+/* responsive design  */
+
+@media screen and (max-width:1879px) {
+    .grid-division{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+@media screen and (max-width:1639px) {
+    .grid-division{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media screen and (max-width:1439px) {
+    .scrollable-menu ul{
+        width: 100%;
+    }
+
+    .scrollable-menu .arrow-right{
+        right: -33px;
+    }
+
+    header,main{
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width:1127px) {
+    .grid-division{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width:949px){
+    .header-section{
+        width: 100%;
+        place-items:unset
+    }
+
+    header{
+        position: static;
+        justify-content: space-between;
+        margin-bottom: -16px;
+    }
+
+    .menu{
+        place-self: center;
+    }
+
+    .menu>div:first-child{
+        column-gap: 3px;
+    }
+
+    .logo-small{
+        display: block;
+    }
+
+    .logo-with-text{
+        display: none;
+    }
+
+    .scrollable-menu{
+        margin-top: 30px;
+    }
+
+    .arrow-right{
+        top: 251px;
+    }
+
+    .menu-bar{
+        max-width: 90%;
+    }
+
+    .menu-bar-item{
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .menu-bar-item .round-button{
+        position: absolute;
+        left: 88.5%;
+    }
+
+    main{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .grid-division{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width:743px) {
+    header{
+        display: none;
+    }
+
+    .scrollable-menu{
+        border-top: none;
+        border-bottom: 1px solid #ededed;
+        box-shadow: 0px 2px 4px #ededed;
+        margin: 0;
+    }
+
+    .scrollable-menu ul{
+        margin-left:24px;
+        margin-right: 0;
+    }
+
+    .scrollable-menu ul li{
+        padding: 0;
+    }
+
+    .scrollable-menu ul li div{
+        row-gap: 4px;
+    }
+
+    .arrow-right{
+        display: none;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .menu-small-screen{
+        display: flex;
+        column-gap: 8px;
+        border-radius: 30px;
+        padding: 10px;
+        margin: 14px 24px;
+        margin-bottom: 15px;
+        border: 1px solid #ebebeb;
+        box-shadow: 0px 2px 10px #ebebeb;
+    }
+
+    .menu-small-screen img{
+        width: 20px;
+        margin: 0 10px;
+        margin-top: -1px;
+    }
+
+    .menu-small-screen>div{
+        display: flex;
+        flex-flow: column;
+        row-gap: 1px;
+    }
+
+    .menu-small-screen>div>ul{
+        display: flex;
+        column-gap: 1.5px;
+    }
+
+    .menu-small-screen>div>ul>li:not(:first-child){
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    .menu-small-screen>div>ul>li{
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #777777;
+    }
+
+    .menu-small-screen>div>h1{
+        font-family: "Circular-medium" !important;
+        font-size: 14px;
+        line-height: 1.25rem;
+        font-weight: 400;
+    }
+
+    .bottom-nav{
+        display: flex;
+        height: 64px;
+        justify-content: center;
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #ebebeb;
+    }
+
+    .bottom-nav>div{
+        display: flex;
+        flex-flow: column;
+        row-gap: 6px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        width: 112px;
+    }
+
+    .bottom-nav>div:first-child p{
+        color: #e81948;
+    }
+
+    .bottom-nav>div>img{
+        height: 24px;
+    }
+
+    .bottom-nav>div>p{
+        font-family: "Circular" !important;
+        font-size: 10px;
+        line-height: 0.75rem;
+        font-weight: 400;
+        color: #878787;
+    }
+
+    .bottom-nav>div:first-child>p{
+        font-family: "Circular-medium" !important;
+    }
+
+    main{
+        padding: 0 24px;
+        margin-top: 23px;
+    }
+}
+
+@media screen and (max-width:549px){
+    .bottom-nav{
+        padding: 0 110px;
+    }
+
+    .bottom-nav>div{
+        width: 100%;
+        min-width: 82.8px;
+    }
+
+    .grid-division{
+        grid-template-columns: repeat(1,1fr);
+        row-gap: 40px;
+    }
+
+    main .content-div img{
+        margin-bottom: 4px;
+    }
+
+    .content-div .round-button>img{
+        height: 16px;
+    }
+
+}
+
+@media screen and (max-width:374px){
+    .menu-small-screen{
+        border-radius: 30px;
+        padding: 10px;
+        margin: 14px 16px;
+        margin-bottom: 15px;
+        border: 1px solid #ebebeb;
+        box-shadow: 0px 2px 10px #ebebeb;
+    }
+
+    .menu-small-screen img{
+        margin: 0 5px;
+        margin-top: -1px;
+    }
+
+    .bottom-nav>div{
+        width: 100%;
+        min-width: max-content;
+    }
+}
