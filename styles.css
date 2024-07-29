@@ -920,16 +920,17 @@ main .content-div img{
 
     .header-section {
         position: fixed;
-        top: 1px;
+        top: 0px;
         left: 0;
         right: 0;
         background-color: white;
-        z-index: 10000;
+        z-index: 1000;
+        padding-bottom:10px;
     }
 
     .scrollable-menu{
         position: fixed;
-        top: 87px;
+        top: 86px;
         left: 0;
         right: 0;
         z-index: 10000;
